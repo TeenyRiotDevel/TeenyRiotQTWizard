@@ -30,9 +30,18 @@
 		    "typeId": "Fields",
 		    "data" :
 		    [
+                {
+                    "name": "ArduinoPath",
+                    "trDisplayName": "Arduino Path:",
+                    "mandatory": true,
+                    "type": "LineEdit",
+                    "data": { 
+                        "trText": "/Applications/Development/Arduino.app"
+                    }
+                },
 		    	{
 			        "name": "TeenyRiotPath",
-			        "trDisplayName": "Path:",
+			        "trDisplayName": "TeenyRiot Path:",
 			        "mandatory": true,
 			        "type": "LineEdit",
 			        "data": { 
@@ -75,7 +84,11 @@
                 {
                     "source": "src/Makefile",
                     "target": "%{ProjectDirectory}/Makefile"
-                }   
+                },
+                {
+                    "source": "src/Library.md",
+                    "target": "%{ProjectDirectory}/libraries/Library.md"
+                }                      
             ]
         }
     ]
