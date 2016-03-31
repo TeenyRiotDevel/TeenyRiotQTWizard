@@ -1,2 +1,4 @@
 %{TeenyRiotPath}/cores/teenyriot-core
 %{TeenyRiotPath}/variants/teenyriot
+%{TeenyRiotPath}/libraries/
+~/Documents/Arduino/libraries
