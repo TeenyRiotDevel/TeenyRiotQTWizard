@@ -13,6 +13,8 @@
 ARDUINO_DIR     = %{ArduinoPath}/Contents/Java
 ARDMK_DIR       = /usr/local/opt/arduino-mk
 TARGET          = output
+MONITOR_PORT 	= /dev/cu.usb*
+ISP_PROG     	= usbasp
 
 # Board Information
 ARCHITECTURE 			= avr
@@ -22,8 +24,7 @@ ARDUINO_PORT			=
 
 # User Library Path
 USER_LIB_PATH   = ../libraries
-#ARDUINO_LIBS   =
-
+#ARDUINO_LIBS = Wire SoftwareSerial
 
 # Auto-detected from boards.txt
 

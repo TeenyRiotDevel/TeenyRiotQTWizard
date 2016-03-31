@@ -14,7 +14,8 @@
         { "key": "CreatorFile", "value": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}', 'creator')}" },
         { "key": "ConfigFile", "value": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}', 'config')}" },
         { "key": "ProjectFiles", "value": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}', 'files')}" },
-        { "key": "ProjectIncludes", "value": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}', 'includes')}" }
+        { "key": "ProjectIncludes", "value": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}', 'includes')}" },
+        { "key": "UserFile", "value": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}', 'creator.user')}" }
     ],
 
     "pages":
@@ -61,6 +62,10 @@
             "data":
             [
                 {
+                    "source": "project.creator.user",
+                    "target": "%{UserFile}"
+                },  
+                {
                     "source": "project.creator",
                     "target": "%{CreatorFile}",
                     "openAsProject": true
@@ -83,12 +88,12 @@
                 },
                 {
                     "source": "src/Makefile",
-                    "target": "%{ProjectDirectory}/Makefile"
+                    "target": "%{ProjectDirectory}/src/Makefile"
                 },
                 {
                     "source": "src/Library.md",
                     "target": "%{ProjectDirectory}/libraries/Library.md"
-                }                      
+                }                                     
             ]
         }
     ]
