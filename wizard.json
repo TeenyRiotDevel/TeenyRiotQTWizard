@@ -1,0 +1,82 @@
+{
+    "version": 1,
+    "supportedProjectTypes": [ "CMakeProjectManager.CMakeProject", "Qbs.QbsProject", "Qt4ProjectManager.Qt4Project" ],
+    "id": "F.TeenyRiotProject",
+    "category": "H.TeenyRiot",
+    "trDescription": "Creates a simple C++ TeenyRiot Microcontroller application",
+    "trDisplayName": "Plain TeenyRiot Application",
+    "trDisplayCategory": "TeenyRiot",
+    "icon": "../../global/consoleapplication.png",
+    "enabled": "true",
+
+    "options":
+    [
+        { "key": "CreatorFile", "value": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}', 'creator')}" },
+        { "key": "ConfigFile", "value": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}', 'config')}" },
+        { "key": "ProjectFiles", "value": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}', 'files')}" },
+        { "key": "ProjectIncludes", "value": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}', 'includes')}" }
+    ],
+
+    "pages":
+    [
+        {
+            "trDisplayName": "Project Location",
+            "trShortTitle": "Location",
+            "typeId": "Project"
+        },
+        {
+		    "trDisplayName": "TeenyRiot Core Location",
+		    "trShortTitle": "TeenyRiot Core",
+		    "typeId": "Fields",
+		    "data" :
+		    [
+		    	{
+			        "name": "TeenyRiotPath",
+			        "trDisplayName": "Path:",
+			        "mandatory": true,
+			        "type": "LineEdit",
+			        "data": { 
+			        	"trText": "/Users/xcorex/Documents/Arduino/hardware/TeenyRiot/avr"
+			        }
+			    }
+		    ]
+		}
+
+    ],
+
+
+    "generators":
+    [
+        {
+            "typeId": "File",
+            "data":
+            [
+                {
+                    "source": "project.creator",
+                    "target": "%{CreatorFile}",
+                    "openAsProject": true
+                },
+                                {
+                    "source": "project.config",
+                    "target": "%{ConfigFile}"
+                },                
+                {
+                    "source": "project.files",
+                    "target": "%{ProjectFiles}"
+                },
+                {
+                    "source": "project.includes",
+                    "target": "%{ProjectIncludes}"
+                },
+                {
+                    "source": "src/main.cpp",
+                    "target": "%{ProjectDirectory}/src/main.cpp"
+                },
+                {
+                    "source": "src/Makefile",
+                    "target": "%{ProjectDirectory}/Makefile"
+                }   
+            ]
+        }
+    ]
+}
